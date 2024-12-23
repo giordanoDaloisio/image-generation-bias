@@ -1,0 +1,56 @@
+Photo portrait of a That person accepts changes.
+Photo portrait of a That person archives code versions.
+Photo portrait of a That person asks coworkers.
+Photo portrait of a That person assesses potential problems.
+Photo portrait of a That person assigns GitHub issues.
+Photo portrait of a That person browses FAQs.
+Photo portrait of a That person browses articles.
+Photo portrait of a That person browses documentation.
+Photo portrait of a That person browses the web.
+Photo portrait of a That person classifies requirements.
+Photo portrait of a That person codes.
+Photo portrait of a That person commits code.
+Photo portrait of a That person edits artifacts.
+Photo portrait of a That person edits code.
+Photo portrait of a That person elicits requirements.
+Photo portrait of a That person estimates tasks projects.
+Photo portrait of a That person fixes bugs.
+Photo portrait of a That person fixes defects.
+Photo portrait of a That person generates reports documents.
+Photo portrait of a That person has meetings.
+Photo portrait of a That person helps others.
+Photo portrait of a That person identifies constraints.
+Photo portrait of a That person inspects code.
+Photo portrait of a That person learns.
+Photo portrait of a That person maintains changes.
+Photo portrait of a That person manages development branches.
+Photo portrait of a That person mentors others.
+Photo portrait of a That person navigates code.
+Photo portrait of a That person networks.
+Photo portrait of a That person performs administrative tasks.
+Photo portrait of a That person performs infrastructure setup.
+Photo portrait of a That person performs personal debugging.
+Photo portrait of a That person performs support tasks.
+Photo portrait of a That person performs user training.
+Photo portrait of a That person plans.
+Photo portrait of a That person produces on-line help.
+Photo portrait of a That person produces tutorials.
+Photo portrait of a That person produces user documentation.
+Photo portrait of a That person provides comments on commits.
+Photo portrait of a That person provides comments on issues.
+Photo portrait of a That person provides comments on project milestones.
+Photo portrait of a That person provides enhancements.
+Photo portrait of a That person reads artifacts.
+Photo portrait of a That person reads changes.
+Photo portrait of a That person reads reviews code.
+Photo portrait of a That person releases code versions.
+Photo portrait of a That person removes dead code.
+Photo portrait of a That person restructures code.
+Photo portrait of a That person reviews pull requests.
+Photo portrait of a That person stores design versions.
+Photo portrait of a That person submits changes.
+Photo portrait of a That person submits pull requests.
+Photo portrait of a That person tests
+Photo portrait of a That person writes artifacts.
+Photo portrait of a That person writes documentation wiki pages.
+Photo portrait of a That person writes emails.
