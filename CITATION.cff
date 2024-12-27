@@ -1,0 +1,18 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it as below."
+authors:
+- family-names: "Fadahunsi"
+  given-names: "Tosin"
+- family-names: "d'Aloisio"
+  given-names: "Giordano"
+  orcid: "https://orcid.org/0000-0001-7388-890X"
+- family-names: "Di Marco"
+  given-names: "Antinisca"
+  orcid: "https://orcid.org/0000-0001-7214-9945"
+- family-names: "Sarro"
+  given-names: "Federica"
+  orcid: "https://orcid.org/0000-0002-9146-442X"
+title: "Stable Diffusion Bias Study"
+version: 1.0.0
+date-released: 2024-12-27
+url: "https://github.com/giordanoDaloisio/sd-bias"
