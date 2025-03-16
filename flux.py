@@ -14,7 +14,7 @@ if(args.style == 'se'):
 else:
   file = 'prompts_g.txt'
 
-client = Together(api_key=)
+client = Together(api_key=API_KEY)
 
 with open(file) as f:
   for prompt in f:
