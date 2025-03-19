@@ -12,7 +12,7 @@ import pandas as pd
 from codecarbon import OfflineEmissionsTracker
 
 parser = ArgumentParser()
-parser.add_argument("--stable_version", default="3", choices=["2", "3", "xl"])
+parser.add_argument("--stable_version", default="3", choices=["2", "3", "xl", "chroma"])
 parser.add_argument("--num_imgs", default=20, type=int)
 parser.add_argument("--data")
 parser.add_argument("--type", choices=["General", "SE"])
