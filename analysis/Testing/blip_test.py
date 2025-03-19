@@ -8,7 +8,7 @@ from argparse import ArgumentParser
 
 parser = ArgumentParser()
 parser.add_argument('--model')
-parser.add_argument('--style', choices=['person', 'se'])
+parser.add_argument('--style', choices=['general', 'se'])
 args = parser.parse_args()
 
 path = f'manual_inspection/{args.model}/{args.style}'
