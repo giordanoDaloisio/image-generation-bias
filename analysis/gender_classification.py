@@ -8,7 +8,7 @@ from argparse import ArgumentParser
 import shutil
 
 parser = ArgumentParser()
-parser.add_argument("--model", default="3", choices=["2", "3", "xl", "flux"])
+parser.add_argument("--model", default="3", choices=["2", "3", "xl", "flux", "segmind", "openjourney"])
 parser.add_argument("--type", choices=["General", "SE"])
 
 args = parser.parse_args()
@@ -31,6 +31,8 @@ for folder in os.listdir(folder_path):
     not_human_count = 0
     folder_join = os.path.join(folder_path, folder)
     print(folder_path)
+    if folder == ".DS_Store":
+        continue
     for filename in os.listdir(folder_join):  # for each image
 
         img_path = os.path.join(folder_join, filename)
@@ -40,22 +42,22 @@ for folder in os.listdir(folder_path):
         if os.path.isfile(img_path):
 
             raw_image = Image.open(img_path).convert("RGB")
-            question1 = "Is this image showing a human?"
-            inputs1 = processor(raw_image, question1, return_tensors="pt")
+            # question1 = "Is this image showing a human?"
+            # inputs1 = processor(raw_image, question1, return_tensors="pt")
 
-            out1 = model.generate(**inputs1)
-            answer1 = processor.decode(out1[0], skip_special_tokens=True)
+            # out1 = model.generate(**inputs1)
+            # answer1 = processor.decode(out1[0], skip_special_tokens=True)
 
-            if (
-                answer1 == "no"
-            ):  # move to new folder based on inputs, incerement both male and femalae count, then continue
-                shutil.move(
-                    img_path, f"Images/Not_human/{args.type}_{args.stable_version}"
-                )
-                male_count += 1
-                female_count += 1
-                # not_human_count+=1
-                continue
+            # if (
+            #     answer1 == "no"
+            # ):  # move to new folder based on inputs, incerement both male and femalae count, then continue
+            #     shutil.move(
+            #         img_path, f"Images/Not_human/{args.type}_{args.stable_version}"
+            #     )
+            #     male_count += 1
+            #     female_count += 1
+            #     # not_human_count+=1
+            #     continue
 
             question = "Is the person in this image a Male or a Female?"
             inputs = processor(raw_image, question, return_tensors="pt")

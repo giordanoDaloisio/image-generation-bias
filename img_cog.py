@@ -21,17 +21,21 @@ pipe.vae.enable_slicing()
 pipe.vae.enable_tiling()
 
 with open(file) as f:
-  for prompt in f:
+  for n,prompt in enumerate(f):
+    if n < 14:
+      continue
+    torch.cuda.empty_cache()
     path = os.path.join('imgs_cog', args.style, prompt.replace(" ","_").replace("\n",""))
     os.makedirs(path, exist_ok=True)
     for i in range(20):
-        image = pipe(
-            prompt=prompt,
-            guidance_scale=3.5,
-            num_images_per_prompt=1,
-            num_inference_steps=50,
-            width=512,
-            height=512,
-        ).images[0]
+        with torch.no_grad():
+          image = pipe(
+              prompt=prompt,
+              guidance_scale=3.5,
+              num_images_per_prompt=1,
+              num_inference_steps=50,
+              width=512,
+              height=512,
+          ).images[0]
 
-        image.save(os.path.join(path, f"{prompt}_{i}.png"))
+          image.save(os.path.join(path, f"{prompt}_{i}.png"))
