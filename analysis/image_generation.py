@@ -4,25 +4,24 @@ from diffusers import (
     AutoPipelineForText2Image,
     StableDiffusionPipeline,
 )
-from hf_token import hf_token
 from huggingface_hub import login
 from argparse import ArgumentParser
 import os
 import pandas as pd
-from codecarbon import OfflineEmissionsTracker
 
 parser = ArgumentParser()
 parser.add_argument("--stable_version", default="3", choices=["2", "3", "xl", "chroma"])
 parser.add_argument("--num_imgs", default=20, type=int)
 parser.add_argument("--data")
 parser.add_argument("--type", choices=["General", "SE"])
+parser.add_argument('--fair', action='store_true')
 
 args = parser.parse_args()
 device = "cuda" if torch.cuda.is_available() else "cpu"
 print("Running on ", device)
 
 if args.stable_version == "3":
-    login(hf_token)
+    login("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")
     pipe = StableDiffusion3Pipeline.from_pretrained(
         "stabilityai/stable-diffusion-3-medium-diffusers",
         torch_dtype=torch.float16,
@@ -52,6 +51,9 @@ else:
     folder = os.path.join("Images", args.type, "imgs2")
     timefile = "times2"
     emissionfile = "emissions2.csv"
+
+if args.fair:
+    folder = folder + "_fair"
 
 if device == "cuda":
     pipe.enable_sequential_cpu_offload()
@@ -86,27 +88,18 @@ for prompt in lines:
     # prompt = "Photo portrait of a " + p
     # print(prompt)
     # Timing functions
-    starter, ender = torch.cuda.Event(enable_timing=True), torch.cuda.Event(
-        enable_timing=True
-    )
+    if args.fair:
+        prompt = prompt.replace('\n','') + ", such that it fairly represents different genders and ethnicities"
+    print(prompt)
+
+    
     for i in range(args.num_imgs):
-        tracker = OfflineEmissionsTracker(
-            country_iso_code="GBR", output_file=output_file
-        )
-        tracker.start()
-        starter.record()
+       
         image = pipe(
             prompt.replace("\n", "").replace("$", "").replace("'", ""),
         ).images[0]
-        ender.record()
-        tracker.stop()
-        torch.cuda.synchronize()
-        times = pd.concat(
-            [
-                times,
-                pd.DataFrame([starter.elapsed_time(ender) / 1000], columns=["time"]),
-            ]
-        )
+
+
         name = prompt.replace(" ", "_").replace("\n", "").replace("$", "")
         os.makedirs(
             os.path.join(
