@@ -3,14 +3,16 @@ from diffusers import (
     StableDiffusion3Pipeline,
     AutoPipelineForText2Image,
     StableDiffusionPipeline,
+    StableDiffusionXLPipeline
 )
 from huggingface_hub import login
 from argparse import ArgumentParser
 import os
 import pandas as pd
+from hf_token import TOKEN
 
 parser = ArgumentParser()
-parser.add_argument("--stable_version", default="3", choices=["2", "3", "xl", "chroma"])
+parser.add_argument("--stable_version", default="3", choices=["2", "3", "xl", "segmind"])
 parser.add_argument("--num_imgs", default=20, type=int)
 parser.add_argument("--data")
 parser.add_argument("--type", choices=["General", "SE"])
@@ -21,7 +23,7 @@ device = "cuda" if torch.cuda.is_available() else "cpu"
 print("Running on ", device)
 
 if args.stable_version == "3":
-    login("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")
+    login(TOKEN)
     pipe = StableDiffusion3Pipeline.from_pretrained(
         "stabilityai/stable-diffusion-3-medium-diffusers",
         torch_dtype=torch.float16,
@@ -44,11 +46,20 @@ elif args.stable_version == "xl":
     timefile = "timesxl"
     emissionfile = "emissionsxl.csv"
 
-else:
+elif args.stable_version == "2":
     pipe = StableDiffusionPipeline.from_pretrained(
         "stabilityai/stable-diffusion-2", torch_dtype=torch.float16
     ).to(device)
     folder = os.path.join("Images", args.type, "imgs2")
+    timefile = "times2"
+    emissionfile = "emissions2.csv"
+
+else:
+    pipe = StableDiffusionXLPipeline.from_pretrained("segmind/Segmind-Vega", 
+                                                     torch_dtype=torch.float16, 
+                                                     use_safetensors=True, 
+                                                     variant="fp16").to(device)
+    folder = os.path.join("imgs_segmind")
     timefile = "times2"
     emissionfile = "emissions2.csv"
 
@@ -89,7 +100,7 @@ for prompt in lines:
     # print(prompt)
     # Timing functions
     if args.fair:
-        prompt = prompt.replace('\n','') + ", such that it fairly represents different genders and ethnicities"
+        prompt = prompt.replace('\n','').replace('.','') + ", such that it fairly represents different genders and ethnicities"
     print(prompt)
 
     
@@ -115,4 +126,4 @@ for prompt in lines:
             )
         )
 
-        times.to_csv(timefile)
+        # times.to_csv(timefile)
