@@ -9,7 +9,7 @@ import shutil
 import json
 
 parser = ArgumentParser()
-parser.add_argument("--model", default="3", choices=["2", "3", "xl", "flux", "segmind", "openjourney", "cog", "3_fair"])
+parser.add_argument("--model", default="3")
 parser.add_argument("--type", choices=["General", "SE"])
 
 args = parser.parse_args()
