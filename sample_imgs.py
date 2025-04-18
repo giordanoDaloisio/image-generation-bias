@@ -9,7 +9,7 @@ name_list = []
 
 
 
-base_path = os.path.join('manual_inspection', 'cog', 'general')
+base_path = os.path.join('manual_inspection', 'imgs_3_fair', 'general')
 # rmtree(base_path)
 os.makedirs(base_path, exist_ok=True)
 
