@@ -9,7 +9,7 @@ import shutil
 import json
 
 parser = ArgumentParser()
-parser.add_argument("--stable_version", default="3", choices=["2", "3", "xl"])
+parser.add_argument("--model", default="3")
 parser.add_argument("--type", choices=["General", "SE"])
 
 args = parser.parse_args()
@@ -20,7 +20,10 @@ df = pd.DataFrame(columns=["Prompt", "Asian", "White", "Black", "Arab", "Other"]
 processor = BlipProcessor.from_pretrained("Salesforce/blip-vqa-base")
 model = BlipForQuestionAnswering.from_pretrained("Salesforce/blip-vqa-base")
 
-folder_path = f"../Images/{args.type}/imgs{args.stable_version}"
+if args.model == "2" or args.model == "3" or args.model == "xl":
+    folder_path = f"../Images/{args.type}/imgs{args.stable_version}"
+else:
+    folder_path = f"../imgs_{args.model}/{args.type}"
 other_list = {}
 
 for folder in os.listdir(folder_path):
@@ -96,7 +99,7 @@ if args.type == "General":
 else:
     prompt_type = "SE"
 
-output_file = f"Stats/{prompt_type}_ethnicity_count_{args.stable_version}.csv"
+output_file = f"Stats/{prompt_type}_ethnicity_count_{args.model}.csv"
 
 df.to_csv(output_file)
 print("output file saved!")
