@@ -13,7 +13,7 @@ args = parser.parse_args()
 
 path = f'manual_inspection/{args.model}/{args.style}'
 
-df = pd.read_csv(f'{path}/img_list.csv')
+df = pd.read_csv(f'{path}/img_list.csv', sep=';')
 
 # df = pd.DataFrame(columns=['Image', 'Blip Labelling', 'Manual Labelling'])
 #  Blip gender classification for each sd version
