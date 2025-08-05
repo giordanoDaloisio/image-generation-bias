@@ -32,4 +32,10 @@ Please cite our works if you use the code in this repository:
   journal={arXiv preprint arXiv:2501.09014},
   year={2025}
 }
+
+@article{dgenerative,
+  title={How Do Generative Models Draw a Software Engineer? An Empirical Study on Implicit Bias of Open-Source Image Generation Models},
+  author={d'Aloisio, Giordano and Fadahunsi, Tosin and Di Marco, Antinisca and Sarro, Federica},
+  journal={An Empirical Study on Implicit Bias of Open-Source Image Generation Models}
+}
 ```
