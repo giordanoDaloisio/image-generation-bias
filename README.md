@@ -20,3 +20,16 @@ Required libraries can be installed through conda using the command:
 conda env create -f environment.yml
 conda activate sdenv
 ```
+
+## Citation
+
+Please cite our works if you use the code in this repository:
+
+```bibtext
+@article{fadahunsi2025generative,
+  title={How Do Generative Models Draw a Software Engineer? A Case Study on Stable Diffusion Bias},
+  author={Fadahunsi, Tosin and d'Aloisio, Giordano and Di Marco, Antinisca and Sarro, Federica},
+  journal={arXiv preprint arXiv:2501.09014},
+  year={2025}
+}
+```
