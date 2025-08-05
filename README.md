@@ -25,7 +25,7 @@ conda activate sdenv
 
 Please cite our works if you use the code in this repository:
 
-```bibtext
+```bibtex
 @article{fadahunsi2025generative,
   title={How Do Generative Models Draw a Software Engineer? A Case Study on Stable Diffusion Bias},
   author={Fadahunsi, Tosin and d'Aloisio, Giordano and Di Marco, Antinisca and Sarro, Federica},
