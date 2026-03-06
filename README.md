@@ -33,9 +33,15 @@ Please cite our works if you use the code in this repository:
   year={2025}
 }
 
-@article{dgenerative,
-  title={How Do Generative Models Draw a Software Engineer? An Empirical Study on Implicit Bias of Open-Source Image Generation Models},
-  author={d'Aloisio, Giordano and Fadahunsi, Tosin and Di Marco, Antinisca and Sarro, Federica},
-  journal={An Empirical Study on Implicit Bias of Open-Source Image Generation Models}
+@article{DALOISIO2025107956,
+  title = {How do generative models draw a software engineer? An empirical study on implicit bias of open-source image generation models},
+  journal = {Information and Software Technology},
+  pages = {107956},
+  year = {2025},
+  issn = {0950-5849},
+  doi = {https://doi.org/10.1016/j.infsof.2025.107956},
+  url = {https://www.sciencedirect.com/science/article/pii/S0950584925002952},
+  author = {d’Aloisio, Giordano and Fadahunsi, Tosin and {Di Marco}, Antinisca and Sarro, Federica},
+  keywords = {Image generation models, Open-source, Bias, Software engineering}
 }
 ```
